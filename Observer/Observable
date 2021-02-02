@@ -1,0 +1,43 @@
+
+class OrderBoard {
+  array orders: [Order]
+
+  array observers: [Observer]
+
+  updateOder(order) {
+    orders.add(order)
+    observers.forEach($0.update())
+  }
+
+  attach(a: Observer) {
+    observers.add(a)
+  }
+
+  detatch(a: Observer) {
+    observers.remove(a)
+  }
+
+}
+
+class PrepSystem {
+  init(orderboard: OrderBoard) {
+    orderBoard.attach(self)
+  }
+
+  deinit() {
+    orderboard.detatch(self)
+  }
+
+  update() {
+    ob.getNewOrderInfo()
+  }
+}
+
+let ob = OrderBoard()
+let grandmasKitchen = new PrepSystem.init(ob)
+let alicesKitchen = new PrepSystem.init(ob)
+let expiditerStation = new PrepSystem.init(ob)
+
+...
+
+ob.updateOrder(new order)
