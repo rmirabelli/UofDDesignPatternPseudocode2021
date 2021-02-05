@@ -1,0 +1,21 @@
+// Bespoke Barista
+
+class coffee {
+  getPrice() {
+    return 1
+  }
+}
+
+
+class coffeeWithMilk {
+  getPrice() {
+    return 2
+  }
+}
+coffeeWithAShot()
+coffeeWithChocolate()
+coffeeWithMilkAndChocolate()
+coffeeWithAShotAndMilk
+coffeeWithAShotAndMilkAndChocolate()
+
+tea()

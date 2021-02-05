@@ -1,3 +1,116 @@
 let array = ["one", "two", "three"]
 
 array.sort()
+
+
+----
+
+class Menu {
+  items = [Item];
+}
+
+class MenuDisplay {
+  showMenu() {
+    display()
+  }
+
+  display() {
+
+  }
+}
+
+class MenuDownloader {
+  download() {
+
+  }
+
+}
+
+
+---
+
+class Array {
+  String *items;
+  sort(/*never add param*/) {
+   // perform alphabetic
+  }
+}
+
+class InvAlphaArray: Array {
+  override sort() {
+    // perform inv alphabetic
+  }
+}
+
+--
+
+
+abstract interface OrderPayment {
+  payInCash()
+  payWithCard()
+  payWithGiftCard()
+  payWithBarter()
+}
+
+abstract interface OrderPaymentTangible {
+  payInCash()
+  payWithBarter()
+}
+
+abstract interface OrderPaymentElectronic {
+  payWithCard()
+  payWithGiftCard()
+}
+
+class CashRegister: OrderPaymentTangible {
+
+}
+
+
+--
+
+// Dependency Inversion
+
+class ElectronicCashRegister: OrderPaymentElectronic {
+
+  init(_cc, _gc) {
+    cc = _cc
+    gc = _gc
+  }
+
+  payWithCard()  {
+    cc.process()
+  }
+
+  payWithGiftCard {
+    gc.process()
+  }
+
+}
+
+//ecr = ElectronicCashRegister(CreditCardSystem(), GiftCardSystem())
+ecr = ElectronicCashRegister(TestCreditCardSystem(), TGCS())
+
+---
+
+class A {
+  b: B
+  func value () {
+    return b.value()
+  }
+}
+
+class B {
+  c: C
+  func value() {
+    return c.value()
+  }
+}
+
+class C {
+  value: Int
+}
+
+let a = A()
+let value = a.b.c.value
+let betterValue = a.value()

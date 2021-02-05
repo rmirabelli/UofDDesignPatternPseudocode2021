@@ -1,0 +1,27 @@
+abstract class DecoratedBeverage {
+  let db: DecoratedBeverage
+  func getPrice()
+}
+
+class Coffee: DecoratedBeverage {
+  db = nil
+  func getPrice() {
+    return 1
+  }
+}
+
+class MilkAddon: DecoratedBeverage {
+  func getPrice() {
+    return db.getPrice() + 2
+  }
+}
+
+class ChocolateAddon: DecoratedBeverage {
+  func getPrice() {
+    return db.getPrice() + 1
+  }
+}
+
+let menuChoice = MilkAddon(ChocolateAddon(Coffee()))
+
+menuChoice.getPrice() // 4

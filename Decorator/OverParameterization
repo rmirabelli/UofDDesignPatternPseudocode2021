@@ -1,0 +1,21 @@
+coffee(milk: Bool, shot: Bool, chocolate: Bool, decaf: Bool)
+
+coffee {
+  getPrice() {
+    price = 1
+    if (milk) price += 1
+    if (shot) price += 2
+    if (chocolate) price += 1
+  }
+}
+
+tea {
+  milk
+  chocolate
+  decaf
+  
+}
+
+hotChocolate {
+
+}
