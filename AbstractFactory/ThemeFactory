@@ -49,3 +49,42 @@ DarkThemeFactory: UIItemThemeFactory {
 LightThemeFactory: UIItemThemeFactory {
 
 }
+
+
+// while in use
+
+factory = DarkThemeFactory()
+canvas = factory.createCanvas()
+text = factory.createText()
+
+// OTHERWISE (if ab factory doesn't exist)
+
+if (currentTheme == DarkModeTheme) {
+  canvas = Canvas(color: black)
+  text = Text(color: white)
+} else {
+  ...
+} else {
+  ...
+}
+
+
+
+
+CYCLOMATIC COMPLEXITY
+
+compareB() {
+  if(b) {
+
+  } else if (c) {
+
+  } else {
+
+  }
+}
+
+if a {
+
+  compareB()
+
+}
