@@ -1,0 +1,51 @@
+// Abstract
+
+UIItem {
+  Color color;
+  ...
+}
+
+UIItemFactory {
+  Color: color
+  CreateUIItem()
+}
+
+UIItemThemeFactory {
+  UIItem createCanvas();
+  UIItem createText();
+}
+
+// Concrete
+
+Canvas: UIItem {
+
+}
+
+Text: UIItem {
+
+}
+
+CanvasFactory: UIItemFactory {
+  CreateUIItem()  {
+    return new Canvas(color: color)
+  }
+}
+
+TextFactory: UIItemFactory {
+  CreateUIItem() {
+    return new Text(color: color)
+  }
+}
+
+DarkThemeFactory: UIItemThemeFactory {
+  canvasFactory = CanvasFactory(color: Black);
+  textFactory = TextFactory(color: White);
+
+  createCanvas() {
+    canvasFactory.CreateUIItem();
+  }
+}
+
+LightThemeFactory: UIItemThemeFactory {
+
+}

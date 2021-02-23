@@ -1,0 +1,45 @@
+
+// Abstract / Interface
+class MenuItem {
+  string: description
+  double: calorieCount
+  decimal: price
+}
+
+class MenuItemFactory {
+  MenuItem createMenuItem(int menuItemType)
+}
+
+// Concrete implementations
+
+class Sandwich: MenuItem {
+  BT breadType;
+  Int cheeseSlices;
+  Bool mayo;
+  Bool mustard;
+  ...
+
+}
+
+class Burger: MenuItem {
+
+}
+
+class SandwichFactory: MenuItemFactory {
+  MenuItem createMenuItem(int menuItemType) {
+    switch menuItemType {
+      case 0: return new Sandwich(mayo: true, mustard: false ...);
+      case 1: return new Sandiwch(...);
+      case 2: return new Burger(...);
+    }
+  }
+}
+
+class TacoFactory(...);
+
+class DrinkFactory();
+
+// as the program runs...
+
+sandwich = SandwichFactory.createMenuItem(2);
+taco = TacoFactory.createMenuItem(8);

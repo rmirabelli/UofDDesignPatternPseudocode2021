@@ -1,0 +1,40 @@
+
+// Abstract class / Interface
+class GameObject {
+  Point position;
+  Size size;
+  Vector velocity;
+}
+
+// Concrete class
+class Asteroid: GameObject {
+
+}
+
+// Abstract class / Interface
+class GameObjectFactory {
+  GameObject createObject(levelNumber: Int);
+}
+
+// Concrete class
+class AsteroidFactory: GameObjectFactory {
+
+  levelNumber: Int
+
+  GameObject createObject() {
+    return Asteroid(randomPosition(), levelNumber/size, levelNumber*velocity)
+  }
+}
+
+
+// Main Game Loop: Start Level
+class GameLoop {
+
+  Array asteroids[MAX_ASTEROIDS];
+
+  startLevel(levelNumber) {
+    factory = new AsteroidFactory(levelNumber);
+    asteroids.add(factory.createObject());
+  }
+
+}
