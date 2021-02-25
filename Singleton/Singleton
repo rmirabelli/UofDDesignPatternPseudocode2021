@@ -1,0 +1,49 @@
+
+
+class RegistrationManager {
+
+  static private RegistrationManager theManager;
+
+  private RegistrationManager() {
+    //... various initializations
+  }
+
+  static RegistrationManager sharedInstance() {
+
+    // Resource lock -- semaphore, mutex, appropriate method
+
+    LockMutex(mut)
+    if (theManager == NULL) {
+      theManager = new RegistrationManager();
+    }
+    UnlockMutex(mut)
+
+    return theManager;
+
+  }
+
+  setName(newName) {
+
+    LockMutex(nameMutex)
+    self.name = newName;
+    UnlockMutex(nameMutex)
+
+  }
+
+  setAddress() {
+
+    LockMutex(addressMutex)
+    self.address = newAddress;
+    UnlockMutex(addressMutex)
+
+  }
+
+  ,...
+
+  getName,getAddress, etc
+
+}
+
+...
+
+RegistrationManager.sharedInstance().setName("Hernando");

@@ -1,0 +1,51 @@
+
+abstract class Duck {
+  swim()
+  fly()
+  quack()
+}
+
+class CityDuck: Duck {
+
+  swim = realSwim
+
+}
+
+class WildDuck: Duck {
+
+  swim = realSwim
+
+}
+
+class RubberDuck: Duck {
+  swim() {
+    ...
+  }
+}
+
+func realSwim() {
+
+}
+
+func fakeSwim() {
+
+}
+
+func squeak() {
+
+}
+
+func vocalize() {
+
+}
+
+func fly() {
+
+}
+
+func dontfly() {
+
+}
+
+// PUT THIS IN A FACTORY
+myRubberDuck = Duck(fakeSwim, squeak, dontfly)
