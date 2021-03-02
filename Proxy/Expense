@@ -1,0 +1,31 @@
+
+// actual object... not implemented here...
+
+DateFormatter {
+  formatString: String
+  func stringFromDate(date: Date) -> String
+}
+
+DateFormatterProxy {
+
+  private formatter: DateFormatter()
+
+  formatString: string {
+    formatter.formatString = newValue
+  }
+  func stringFromDate(date: Date) -> String {
+    formatter.stringFromDate(date)
+  }
+  
+}
+
+
+
+...
+
+let humanReadable: String = DateFormatter().stringFromDate(Date());
+
+// INSTEAD
+
+let formatter = DateFormatterProxy()
+let humanReadable: String = formatter.stringFromDate(Date());

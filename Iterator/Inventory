@@ -1,0 +1,17 @@
+
+let inventory: [InventoryObject] = player.leftHandInventory
+
+let allInventory: Iterable = {
+  private allInventoryItems: [[InventoryObject]] = [
+    leftHandInventory,
+    rightHandInventory,
+    backpackInventory,
+    satchelInventory
+  ]
+}
+
+let inventoryIterator = allInventory.getIterator()
+
+while inventoryIterator.hasNext {
+  print(inventoryIterator.next())
+}

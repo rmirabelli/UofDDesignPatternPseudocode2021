@@ -1,0 +1,19 @@
+
+class SecurityProvider {
+  let userName: string
+  let passwordHASH: string
+
+
+}
+
+class secureMenuItemIteratorProxy {
+
+  getIterator() {
+    let service = httpService(url)
+    service.appendSecurity(userName, passwordHASH)
+    let data = service.getData()
+    let array = data.translate()
+    return array.getIterator()
+  }
+
+}

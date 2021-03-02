@@ -1,0 +1,9 @@
+
+let menuItemIterator: [MenuItem].getIterator()
+
+menuItemIterator = {
+  let service = httpService(url);
+  let data = service.getData()
+  let array = data.translate()
+  return array.getIterator()
+}
