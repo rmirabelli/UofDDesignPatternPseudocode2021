@@ -1,0 +1,47 @@
+// CLIENT
+
+class PaymentSystem {
+
+  BillPaymentFacade billPaymentFacade;
+
+  payBill() {
+    billPaymentFacade.lookUpCurrentBill();
+  }
+}
+
+// Facade to universe...
+
+class BillPaymentFacade {
+
+  // member variables
+  BillRetrievalSystem billRetrievalSystem;
+  CreditCardVaultSystem creditCardVaultSystem;
+
+  // member functions
+  lookUpCurrentBill() {
+    billRetrievalSystem.lookUpCurrentBill();
+  }
+
+  getCardFromVault() {
+    newCreditCardVaultSystem.getCardFromVault();
+  }
+
+}
+
+// UniverseOfComplexObjects
+
+class BillRetrievalSystem {
+  lookUpCurrentBill()
+}
+
+class CreditCardVaultSystem {
+  getCardFromVault()
+}
+
+class CreditCardPaymentSystem {
+  pay()
+}
+
+class ReceiptGenerator {
+  createReceipt()
+}

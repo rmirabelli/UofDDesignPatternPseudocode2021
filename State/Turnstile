@@ -1,0 +1,46 @@
+abstract class GateState {
+  enter()
+  startPayment()
+  payOK()
+  payFail()
+}
+
+class GateStateOpen: GateState {
+
+}
+
+class GateStateClosed: GateState {
+
+}
+
+class GateStatePaymentInProcess: GateState {
+
+  Turnstile turnstile;
+
+  public GateStatePaymentInProcess(Turnstile ts) {
+    self.turnstile = ts;
+  }
+
+  payOK() {
+    turnstile.runMotorToTop();
+    turnstile.changeLightToGreen();
+    turnstile.gateState = new GateStateOpen(turnstile)
+  }
+
+  ...
+
+}
+
+class Turnstile {
+
+  GateState gateState;
+
+  public Turnstile() {
+    gateState = GateStateOpen(self);
+  }
+
+  payOK() {
+    gateState.payOK()
+  }
+
+}
