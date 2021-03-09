@@ -1,0 +1,83 @@
+// Museum entities
+
+abstract class MuseumEntity {
+  ...
+  catalogNumber
+  displayRoomIdentifier
+  ...
+}
+
+class Inventor: MuseumEntity {
+
+}
+
+class Artist: MuseumEntity {
+  name: String
+  biography: String
+  lifespan: DateRange
+}
+
+class Painting: MuseumEntity {
+  title: String
+  artistName: String
+  creationDate: Date
+}
+
+// Museum Catalog
+
+abstract class CatalogItem {
+  ...
+}
+
+class IndexListing: CatalogItem {
+  name: String
+  pageNumber: Int
+}
+
+class ShortListing: CatalogItem {
+  name: String
+  smallDetail: String
+}
+
+class LongListing: CatalogItem {
+    name: String
+    largeDetail: String
+    imageLocation: String (URL)
+}
+
+
+---
+
+// Cartesian products
+
+class PaintingIndexListing {
+
+}
+
+ArtistIndexListing {
+
+}
+
+InventorIndexListing {
+
+}
+
+...
+
+PaintingLongListing {
+
+}
+
+(9 total)
+
+// Bridging
+
+MuseumItemListingBridge {
+  entity: MuseumEntity
+  listing: CatalogItem
+
+  imageLocation() {
+    entity.imageLocation
+  }
+
+}

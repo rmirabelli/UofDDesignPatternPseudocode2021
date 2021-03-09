@@ -1,0 +1,74 @@
+// Complex class
+
+class Hamburger {
+  size: Int
+  cheese: CheeseEnumeration
+  tomato: Bool
+  lettuce: Bool
+  mayo: Bool
+  mustard: Bool
+  ketchup: Bool
+  bbqSauce: Bool
+  bun: Bool
+
+  public Hamburger size(value: Int) {
+    newBurger = self.copy()
+    newBurger.size = value
+    return newBurger
+  }
+
+  public Hamburger mustard(value: Bool) {
+    newBurger = self.copy()
+    newBurger.mustard = value
+    return newBurger
+  }
+
+  price: Double
+
+  public Hamburger(s: Int, c: CheeseEnumeration, t: Bool, ...) {
+
+  }
+
+  public Hamburger(builder: HambugerBuilder) {
+    self.tomato = builder.tomato
+    ...
+  }
+
+  public hawaiianBurger() -> Hamburger {
+    hamburger = new Hamburger(...)
+  }
+
+}
+
+class HambugerBuilder {
+  size: Int
+  cheese: CheeseEnumeration
+  tomato: Bool
+  lettuce: Bool
+  mayo: Bool
+  mustard: Bool
+  ketchup: Bool
+  bbqSauce: Bool
+  bun: Bool
+}
+
+
+/// WHEN WE USE THIS...
+myBurgerBuilder = BurgerBuilder()
+myBurgerBuilder.lettuce = true
+myBurgerBuilder.mayo = true
+myBurger = Hamburger(myBurgerBuilder)
+
+
+
+myBurger = Hamburger().size(6).mayo(true).mustard(true)
+
+
+
+myBurger.computeCost() // or whatever
+myBurger.deliver()
+
+
+//
+
+Password = Password().a.b.c.1.2.3.getValue()
